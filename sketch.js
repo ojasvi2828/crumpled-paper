@@ -6,7 +6,7 @@ const Body = Matter.Body;
 const Render = Matter.Render;
 var dustbinObj,groundObject	
 var world;
-var paper;
+var paper,paperImg;
 
 function setup() {
 	createCanvas(1600, 700);
@@ -17,7 +17,8 @@ function setup() {
 	
 	groundObject=new ground(width/2,670,width,20);
 	dustbinObj=new dustbin(1200,650);
-    paper = new paper(100,145,10,10);
+    paper = new Paper(1200,600,50,10);
+	
 	Engine.run(engine);
   
 }
@@ -31,6 +32,7 @@ function draw() {
   groundObject.display();
   dustbinObj.display();
  paper.display();
+ drawSprites();
 }
 function keyPressed(){
 	if(keyCode === UP_ARROW){
