@@ -17,7 +17,7 @@ function setup() {
 	
 	groundObject=new ground(width/2,670,width,20);
 	dustbinObj=new dustbin(1200,650);
-    paper = new Paper(1200,600,50,10);
+    paper = new Paper(1100,600,50,10);
 	
 	Engine.run(engine);
   
@@ -34,9 +34,4 @@ function draw() {
  paper.display();
  drawSprites();
 }
-function keyPressed(){
-	if(keyCode === UP_ARROW){
- Matter.body.applyForce(paper.body,paper.body.position,{x:130,y: -145});
 
- 	}
-}

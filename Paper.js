@@ -13,6 +13,16 @@ class Paper {
 display(){
  var pos =this.body.position;
 
-}
 
+ push();
+            translate(pos.x, pos.y);
+        rect(0, 0, this.width, this.height);
+             pop(); 
+}
+ keyPressed(){
+	if(keyCode === UP_ARROW){
+ Matter.body.applyForce(paper.body,paper.body.position,{x:130,y: -145});
+
+ 	}
+}
 }
