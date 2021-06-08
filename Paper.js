@@ -1,12 +1,12 @@
 class Paper {
-	constructor(x,y,width,height){
-		var options={
-			isStatic:false,
+	constructor(x,y,r){
+		var options={isStatic:false,
             restitution:0.3,
-            friction:0.5,
+            friction:0,
             density:1.2		
 			}
-            this.body=Bodies.rectangle(x,y,width,height,options);
+            this.body=Bodies.circle(x,y,(r+9)/2,options);
+            this.r = r
             this.image = loadImage("paper.png");
             World.add(world, this.body);
     }
@@ -15,14 +15,10 @@ display(){
 
 
  push();
-            translate(pos.x, pos.y);
-        rect(0, 0, this.width, this.height);
-             pop(); 
-}
- keyPressed(){
-	if(keyCode === UP_ARROW){
- Matter.body.applyForce(paper.body,paper.body.position,{x:130,y: -145});
 
- 	}
+            translate(pos.x, pos.y);
+            rotate(this.body.angle);
+        image(this.image,0, 0,this.r,this.r);
+             pop(); 
 }
 }
